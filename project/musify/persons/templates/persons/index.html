@@ -30,7 +30,7 @@
                 <div class="carousel-caption">
                     <h2 class="animated fadeInRight"><b>Musify</b></h2>
                      <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
                 </div>
             </div>
             <div class="item">
@@ -39,7 +39,7 @@
                 <div class="carousel-caption">
                      <h2 class="animated fadeInRight"><b>Musify</b></h2>
                      <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
                 </div>
             </div>
             <div class="item">
@@ -48,7 +48,7 @@
                 <div class="carousel-caption">
                      <h2 class="animated fadeInRight"><b>Musify</b></h2>
                      <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
                 </div>
             </div>
         </div>
@@ -62,5 +62,29 @@
         </a>
 
     </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <div class="modal-title" id="exampleModalLabel"><span class="glyphicon glyphicon-sunglasses doggo"></span> Feed me a username to get started</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="usr">Username:</label>
+                <input type="text" class="form-control" id="usr">
+            </div>
+        <button type="button" class="btn btn-primary">Go</button>
+        </form>
+  </div>
+</div>
+
+
+
 </body>
 </html>
