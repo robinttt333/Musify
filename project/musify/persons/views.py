@@ -6,4 +6,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
-    return HttpResponse("Hello World")
+    context={"title":"Musify"}
+    return render(request,"persons/index.html",context)
