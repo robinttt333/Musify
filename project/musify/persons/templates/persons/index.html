@@ -2,13 +2,65 @@
 {% load static %}
 <html lang="en">
 <head>
+     <script src="{% static 'js/jquery.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/npm.js' %}"></script>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'persons/css/style.css' %}" rel="stylesheet">
     <title>{{ title }}</title>
 </head>
 <body>
-<div class="jumbotron"><header>Love me</header></div>
+
+
+  <!-- Full Page Image Background Carousel Header -->
+  <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('{% static 'images/img1.jpg' %}');"></div>
+                <div class="carousel-caption">
+                    <h2 class="animated fadeInRight"><b>Musify</b></h2>
+                     <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
+                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('{% static 'images/img2.jpg' %}');"></div>
+                <div class="carousel-caption">
+                     <h2 class="animated fadeInRight"><b>Musify</b></h2>
+                     <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
+                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('{% static 'images/img3.jpg' %}');"></div>
+                <div class="carousel-caption">
+                     <h2 class="animated fadeInRight"><b>Musify</b></h2>
+                     <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
+                     <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Get Started</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </div>
 </body>
 </html>
