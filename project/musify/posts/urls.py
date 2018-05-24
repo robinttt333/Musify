@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from . import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^',include("persons.urls",namespace="persons")),
-    url(r'^posts/',include("posts.urls",namespace="posts"))
+    url(r'',views.list,name="list"),
 ]
