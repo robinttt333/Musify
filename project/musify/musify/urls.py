@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include("persons.urls",namespace="persons")),
-    url(r'^posts/',include("posts.urls",namespace="posts"))
+    url(r'^posts/',include("posts.urls",namespace="posts")),
+    url(r'^froala_editor/', include('froala_editor.urls')),
 ]
+
+if settings.DEBUG == True:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

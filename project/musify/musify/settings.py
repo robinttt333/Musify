@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'persons',
     'posts',
-    'mediumeditor',
+    'froala_editor',
     'crispy_forms',
 ]
+FRAOLA_EDITOR_THIRD_PARTY = ('image_aviary', 'spell_checker')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,30 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
-MEDIUM_EDITOR_THEME = 'bootstrap'
-MEDIUM_EDITOR_OPTIONS = {
-    'toolbar': {
-        'static': True,
-        'buttons': [
-            'bold',
-            'italic',
-            'underline',
-            'strikethrough',
-            'subscript',
-            'superscript',
-            'h1',
-            'h2',
-            'h3',
-            'h4',
-            'h5',
-            'h6',
-        ]
-    },
-    'paste': {
-        'forcePlainText': True,
-        'cleanPastedHTML': False,
-        'cleanReplacements': [],
-        'cleanAttrs': ['class', 'style', 'dir'],
-        'cleanTags': ['meta']
-    }
-}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
