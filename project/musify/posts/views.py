@@ -5,5 +5,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def list(request):
+def list(request,username=None):
     return HttpResponse("lists worked")

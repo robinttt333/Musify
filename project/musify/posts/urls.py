@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
+
 urlpatterns = [
-    url(r'',views.list,name="list"),
+    url(r'^(?P<username>[-\w]+)$',views.list,name="list"),
 ]
