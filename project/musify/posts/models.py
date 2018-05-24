@@ -12,6 +12,6 @@ class Post(models.Model):
     timestamp=models.DateTimeField(auto_now_add=True)
     lyrics=models.CharField(max_length=300,null=True)
     artist=models.CharField(max_length=120)
-
+    content=models.TextField(max_length=6000)
     def __unicode__(self):
         return self.title+','+self.author

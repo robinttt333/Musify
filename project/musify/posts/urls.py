@@ -19,4 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^(?P<username>[-\w]+)$',views.list,name="list"),
+    url(r'^(?P<username>[-\w]+)/create$',views.create,name="create"),
+
 ]
