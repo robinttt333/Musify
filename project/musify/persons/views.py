@@ -11,4 +11,5 @@ def homepage(request):
         return render(request,"persons/index.html",context)
     else:
         username=request.POST.get("username")
+        print reverse("posts:list",kwargs={"username":username})
         return HttpResponseRedirect(reverse("posts:list",kwargs={"username":username}))
