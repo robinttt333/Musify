@@ -1,6 +1,6 @@
 from django.forms import forms,ModelForm
 from .models import Post
-from froala_editor.widgets import FroalaEditor
+from pagedown.widgets import PagedownWidget
 from django.forms import forms
 class PostForm(ModelForm):
     class Meta:
@@ -8,7 +8,7 @@ class PostForm(ModelForm):
         fields=['title','lyrics','artist','image','content','tags',]
 
         widgets = {
-            'content': FroalaEditor(theme='dark')
+            'content': PagedownWidget(show_preview=False)
         }
     #This function makes the lyrics field inside the modal form optional
     def __init__(self, *args, **kwargs):

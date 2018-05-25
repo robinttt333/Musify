@@ -13,6 +13,13 @@
     z-index:1;
 }
 
+
+.wmd-panel
+{
+margin-left:0px !important;
+margin-right:0px !important;
+}
+
 .jumbotron h2 {margin-top:0;}
 .jumbotron {
   position:relative;

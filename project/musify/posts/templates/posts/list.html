@@ -12,37 +12,21 @@
     {% for obj in list %}
 <div class="row">
   <div class="col-sm-12">
-    <div class="thumbnail"  style="overflow:hidden;padding:10px;">
+    <div class="thumbnail">
         {% if obj.image %}
          <img src='{{ obj.image.url }}' class='img-responsive' />
         {% endif %}
       <div class="caption">
-        <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <small>{{ obj.timestamp }}</small></h3>
+        <h3>{{obj.title}} <small>{{ obj.timestamp }}</small></h3>
           <p><b>Author</b>: {{ obj.author }}</p>
-          <p>{{ obj.content|safe|linebreaks|truncatechars:120 }}</p>
+          <p class="content-markdown">{{ obj.content | truncatewords_html:10 }}</p>
+      <button class="btn btn-primary btn-small"><a href='{{ obj.get_absolute_url }}'>View</a></button>
       </div>
     </div>
   </div>
 <hr/>
 </div>
 {% endfor %}
-
-
-<div class="pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span>
-
-        {% if object_list.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
-        {% endif %}
-    </span>
-</div>
 
 
 

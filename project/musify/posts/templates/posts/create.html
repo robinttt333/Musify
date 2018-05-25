@@ -1,7 +1,21 @@
 {% extends "posts/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="container">
+<div class="col-sm-6">
+    <h1>Preview</h1>
+    <div class="content-preview">
+        <h3 id="preview-title"></h3>
+        <h3 id="preview-lyrics"></h3>
+        <h3 id="preview-artist"></h3>
+        <p id="preview-content"></p>
+        <h3 id="preview-tags"></h3>
+
+    </div>
+
+</div>
+
+<div class="col-sm-6">
+    <h1>Form</h1>
     <form method="post" enctype="multipart/form-data">
     {{form | crispy}}
     {% csrf_token %}

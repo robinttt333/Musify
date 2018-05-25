@@ -23,5 +23,4 @@ class Post(models.Model):
         return self.title+','+self.author
 
     def get_absolute_url(self):
-        print 'hi'
         return reverse("posts:details",kwargs={"username":self.author,"id":self.id})

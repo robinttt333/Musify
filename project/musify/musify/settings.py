@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'persons',
     'posts',
-    'froala_editor',
+#third party
     'crispy_forms',
+    'pagedown',
 ]
 FRAOLA_EDITOR_THIRD_PARTY = ('image_aviary', 'spell_checker')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

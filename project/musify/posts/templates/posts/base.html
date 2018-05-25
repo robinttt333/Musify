@@ -28,7 +28,7 @@
 </div>
 {% block content %}
 {% endblock %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 <script>
     $(document).ready(function(){
 
@@ -36,12 +36,76 @@
     $(this).addClass("img-responsive");
     })
 
-    $(".markdown-content").each(function(){
+    $('.content-markdown').each(function(){
+    var converter = new showdown.Converter();
     var content=$(this).text();
-    var marked=marked(content);
-    $(this).html(marked);
+
+    var op=converter.makeHtml(content)
+    $(this).html(op);
     })
 
+ $('.content-markdown img').each(function(){
+    $(this).addClass('img-responsive');
+    })
+
+
+
+    $('.content-markdown').next().each(function(){
+    var converter = new showdown.Converter();
+    var content=$(this).text();
+     var op=converter.makeHtml(content)
+    $(this).html(op);
+    })
+
+
+var title=$("#id_title").val();
+$("#preview-title").text(title);
+
+$("#id_title").keyup(function(){
+    var value=$(this).val();
+    $("#preview-title").text(value);
+})
+
+
+var lyrics=$("#id_lyrics").val();
+$("#preview-lyrics").text(lyrics);
+
+$("#id_lyrics").keyup(function(){
+    var value=$(this).val();
+    $("#preview-lyrics").text(value);
+})
+
+
+
+
+var artist=$("#id_artist").val();
+$("#preview-artist").text(artist);
+$("#id_artist").keyup(function(){
+    var value=$(this).val();
+    $("#preview-artist").text(value);
+})
+
+
+
+$("#id_content").keyup(function(){
+    var val=$(this).val();
+    $("#preview-content").html(converter.makeHtml(val));
+
+    $("#preview-content img").each(function(){
+$(this).addClass('img-responsive');
+})
+
+
+})
+
+
+var tags=$("#id_tags").val();
+$("#preview-tags").text(tags);
+
+$("#id_tags").keyup(function(){
+    var value=$(this).val();
+    $("#preview-tags").text(value);
+})
 
     })
 </script>
