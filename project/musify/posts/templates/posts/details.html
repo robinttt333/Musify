@@ -1,0 +1,50 @@
+{% extends "posts/base.html" %}
+
+{% block head_title %}
+{{ object.title }} | {{ block.super }}
+{% endblock head_title %}
+
+
+
+{% block content %}
+
+<div class='col-sm-6 col-sm-offset-3'>
+    {% if object.image %}
+    <img src='{{ object.image.url }}' class='img-responsive' />
+    {% endif %}
+<h1>{{ object.title }} <small>{{ object.timestamp }}</small></h1>
+<p>Author: {{ object.author }}</p>
+ <p>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+Facebook
+</a>
+<a href="https://twitter.com/home?status={{ object.content|truncatechars:80 }}%20{{ request.build_absolute_uri }}">
+Twitter
+</a>
+     <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ object.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}">
+Linkedin
+</a>
+<a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
+</p>
+
+
+    <hr/>
+
+
+
+<div class='row'>
+<div class='col-sm-12 content-markdown'>
+
+{{ object.content}}
+
+<hr/>
+<br/>
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

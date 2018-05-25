@@ -28,5 +28,22 @@
 </div>
 {% block content %}
 {% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+    $("img[data-type='image']").each(function(){
+    $(this).addClass("img-responsive");
+    })
+
+    $(".markdown-content").each(function(){
+    var content=$(this).text();
+    var marked=marked(content);
+    $(this).html(marked);
+    })
+
+
+    })
+</script>
 </body>
 </html>

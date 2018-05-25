@@ -5,8 +5,9 @@ from django.db import models
 
 # Create your models here.
 from persons.models import person
+from django.urls import reverse
 def location(instance,filename):
-    return str(instance.author)+'/'+str(filename)
+    return str(instance.author)+'/'+str(instance.timestamp).split()[0]+'/'+str(filename)
 
 class Post(models.Model):
     author=models.CharField(max_length=120)
@@ -20,3 +21,7 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.title+','+self.author
+
+    def get_absolute_url(self):
+        print 'hi'
+        return reverse("posts:details",kwargs={"username":self.author,"id":self.id})
