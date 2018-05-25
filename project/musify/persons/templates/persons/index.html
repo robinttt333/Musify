@@ -5,15 +5,16 @@
      <script src="{% static 'js/jquery.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/npm.js' %}"></script>
+    <script src="{% static 'persons/js/script.js' %}"></script>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
     <link href="{% static 'persons/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'persons/css/style1.css' %}" rel="stylesheet">
     <title>{{ title }}</title>
 </head>
 <body>
 
 
-  <!-- Full Page Image Background Carousel Header -->
   <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -28,29 +29,36 @@
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('{% static 'images/img1.jpg' %}');"></div>
                 <div class="carousel-caption">
-                    <h2 class="animated fadeInRight"><b>Musify</b></h2>
+                    <h2 class="animated fadeInRight"><b class="doggo">Musify</b></h2>
                      <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
+                     <p class="animated fadeInRight"></p>
+					<a class="btn btn-transparent btn-rounded btn-large main-nav centered">Get Started</a>
+
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('{% static 'images/img2.jpg' %}');"></div>
-                <div class="carousel-caption">
-                     <h2 class="animated fadeInRight"><b>Musify</b></h2>
-                     <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
+                <div class="carousel-caption row">
+                     <h2 class="animated fadeInRight"><b class="doggo">Musify</b></h2>
+                     <h3 class="animated fadeInRight">Learn new stories about the songs you love</h3>
+                     <p class="animated fadeInRight"></p>
+				<a class="btn btn-transparent btn-rounded btn-large main-nav centered">Get Started</a>
+
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('{% static 'images/img3.jpg' %}');"></div>
                 <div class="carousel-caption">
-                     <h2 class="animated fadeInRight"><b>Musify</b></h2>
-                     <h3 class="animated fadeInRight">Share your experiences about your favourite songs</h3>
-                     <p class="animated fadeInRight"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-transparent btn-rounded btn-large">Get Started</button></p>
+                     <h2 class="animated fadeInRight"><b class="doggo">Musify</b></h2>
+                     <h3 class="animated fadeInRight">Join us and fall in love with the world of music</h3>
+                     <p class="animated fadeInRight"></p>
+					<a class="btn btn-transparent btn-rounded btn-large main-nav centered">Get Started</a>
+
                 </div>
             </div>
+
         </div>
 
         <!-- Controls -->
@@ -64,28 +72,97 @@
     </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-          <div class="modal-title" id="exampleModalLabel"><span class="glyphicon glyphicon-sunglasses doggo"></span> Feed me a username to get started</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="usr">Username:</label>
-                <input name="username" type="text" class="form-control" id="usr">
-            </div>
-        <input type="submit" class="btn btn-primary" value="Go">
-        </form>
-  </div>
-</div>
 
 
+	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">New account</a></li>
+			</ul>
 
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Create account">
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
 </body>
 </html>

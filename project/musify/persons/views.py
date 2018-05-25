@@ -5,6 +5,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 # Create your views here.
 from persons.models import person
+
+
 def homepage(request):
     if request.method=="GET":
         context={"title":"Musify"}

@@ -6,7 +6,7 @@ body {
 .carousel,
 .item,
 .active {
-    height: 100%;
+    height: 100% !important;
 }
 
 .carousel-inner {
@@ -33,7 +33,10 @@ p{padding:10px}
 }
 
 
+a {
 
+text-decoration: none;
+}
 
 /**
  * Button
@@ -98,6 +101,12 @@ p{padding:10px}
 }
 
 .doggo{
-font-size:20px;
+font-size:200px;
 
+}
+
+.centered
+{
+float:none !important;
+margin-top:10px !important;
 }
