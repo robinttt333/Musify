@@ -6,11 +6,15 @@ from django.db import models
 # Create your models here.
 from persons.models import person
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+
+
 def location(instance,filename):
     return str(instance.author)+'/'+str(instance.timestamp).split()[0]+'/'+str(filename)
 
 class Post(models.Model):
-    author=models.CharField(max_length=120)
+    author=models.ForeignKey(User,default=1)
     tags=models.CharField(max_length=150)
     title=models.CharField(max_length=120)
     timestamp=models.DateTimeField(auto_now_add=True)
