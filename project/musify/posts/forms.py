@@ -5,7 +5,7 @@ from django.forms import forms
 class PostForm(ModelForm):
     class Meta:
         model=Post
-        fields=['title','lyrics','artist','image','content','tags',]
+        fields=['title','lyrics','artist','image','content',]
 
         widgets = {
             'content': PagedownWidget(show_preview=False)
@@ -14,4 +14,3 @@ class PostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['lyrics'].required = False
-        self.fields['tags'].required = False

@@ -21,7 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include("persons.urls",namespace="persons")),
     url(r'^posts/',include("posts.urls",namespace="posts")),
-    url(r'^froala_editor/', include('froala_editor.urls')),
 ]
 
 if settings.DEBUG == True:

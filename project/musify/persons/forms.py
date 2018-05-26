@@ -20,7 +20,6 @@ class Login_form(forms.Form):
         username=self.cleaned_data.get('username')
         password=self.cleaned_data.get('password')
         user=authenticate(username=username,password=password)
-
         if not user:
             raise forms.ValidationError("Invalid username or password")
 
@@ -49,4 +48,4 @@ class Registration_form(forms.ModelForm):
         if instances.count():
             raise forms.ValidationError("A user already exists with that email")
 
-        return super(Registration_form,self).clean(*args,**kwargs)
+        return email

@@ -18,8 +18,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^(?P<username>[-\w]+)/create$',views.create_view,name="create"),
-    url(r'^(?P<username>[-\w]+)$',views.list_view,name="list"),
-    url(r'^(?P<username>[-\w]+)/(?P<id>[-\w]+)/details$',views.details_view,name="details"),
+    url(r'^(?P<username>[-\w]+)$', views.list_view, name="list"),
+    url(r'^create/(?P<username>[-\w]+)$',views.create_view,name="create"),
+    url(r'^details/(?P<username>[-\w]+)/(?P<id>[-\w]+)$',views.details_view,name="details"),
 
 ]
