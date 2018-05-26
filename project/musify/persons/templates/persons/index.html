@@ -78,7 +78,7 @@
 		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
 			<ul class="cd-switcher">
 				<li><a href="#0">Sign in</a></li>
-				<li><a href="#0">New account</a></li>
+				<li><a href="#0" class="new">New account</a></li>
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
@@ -105,23 +105,21 @@
 			<div id="cd-signup"> <!-- sign up form -->
 				<form class="cd-form" method="post">
 					{% csrf_token %}
-					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" name="username">
-						<span class="cd-error-message">Error message here!</span>
+					{{ registration_form.errors }}
+						<p class="fieldset">
+						<label class="image-replace cd-email" >E-mail</label>
+						{{ registration_form.email }}
 					</p>
 
 					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" name="email">
-						<span class="cd-error-message">Error message here!</span>
+						<label class="image-replace cd-username">Username</label>
+						{{ registration_form.username }}
 					</p>
 
 					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password" name="password">
+						<label class="image-replace cd-password" >Password</label>
+						{{ registration_form.password }}
 						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 
@@ -133,33 +131,30 @@
 				<!-- <a href="#0" class="cd-close-form">Close</a> -->
 			</div> <!-- cd-signup -->
 
-			<div id="cd-reset-password"> <!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
 
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Reset password">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
-			</div> <!-- cd-reset-password -->
 			<a href="#0" class="cd-close-form">Close</a>
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
 <script>
 	$(document).ready(function(){
-	$(".errorlist li").addClass("alert alert-danger");
-	if( $(".errorlist li").text() )
+
+	$(".nonfield li").addClass("alert alert-danger");
+
+	if( $(".nonfield li").text() )
 	{
 	$(".buttonselector").click();
 	}
+
+	$(".errorlist li .errorlist li").each(function(){
+	$(this).addClass("alert alert-danger");})
+
+	if( $(".errorlist li .errorlist li").text() )
+	{
+	$(".buttonselector").click();
+	$(".new").click();
+
+	}
+
 	})
 </script>
 
