@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from .forms import Login_form,Registration_form
 
 def homepage(request):
@@ -25,7 +25,7 @@ def homepage(request):
                 instance.set_password(password)
                 instance.save()
                 login(request,instance)
-                redirect("/")
+                return redirect("/posts/"+instance.username)
             context = {"title": "Musify","registration_form":registration_form,"login_form":Login_form()}
             return render(request, "persons/index.html", context)
         else:
@@ -37,6 +37,13 @@ def homepage(request):
                 login(request,user)
                 if next:
                     return redirect(next)
+                return redirect("/posts/"+username)
+
 
             context = {"title": "Musify","registration_form":Registration_form(),"login_form":login_form}
             return render(request, "persons/index.html", context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("/")

@@ -13,21 +13,27 @@
     {{ form.media }}
 </head>
 <body>
-<div class="jumbotron jumbotron-billboard">
-  <div class="img"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2><b>Musify</b></h2>
-                <p>
-                    Welcome to Musify {{ username }}
-                </p>
-            </div>
-        </div>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand" >Musify</span>
     </div>
-</div>
+    <ul class="nav navbar-nav my-navbar">
+      <li class="home"><a href="{% url 'posts:list' username=username %}">Home</a></li>
+      <li class="create"><a href="{% url 'posts:create' username=username %}">Create</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
 {% block content %}
 {% endblock %}
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 <script>
     $(document).ready(function(){
@@ -106,6 +112,21 @@ $("#id_tags").keyup(function(){
     var value=$(this).val();
     $("#preview-tags").text(value);
 })
+
+
+$(".home").on("click",function(){
+      $(".create").removeClass("active");
+      $(this).addClass("active");
+})
+
+
+$(".create").on("click",function(){
+      $(".home").removeClass("active");
+      $(this).addClass("active");
+})
+
+
+
 
     })
 </script>

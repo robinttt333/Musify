@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from .forms import PostForm
 # Create your views here.
 from django.contrib.auth import get_user_model
@@ -19,7 +19,7 @@ def list_view(request,username=None):
     q=request.GET.get('q')
     queryset_list=Post.objects.all()
     if q:
-        queryset_list=queryset_list.filter(Q(title__icontains=q)|Q(lyrics__icontains=q)|Q(tags__icontains=q)).distinct()
+        queryset_list=queryset_list.filter(Q(title__icontains=q)|Q(lyrics__icontains=q)).distinct()
     paginator = Paginator(queryset_list, 10)  # Show 25 contacts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
@@ -48,6 +48,9 @@ def create_view(request,username=None):
         instance=form.save(commit=False)
         instance.author=User.objects.filter(username__iexact=username).first()
         instance.save()
+        return redirect("/posts/"+username)
+
+
 
 @login_required(login_url="/")
 def details_view(request,username=None,id=None):

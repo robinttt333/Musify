@@ -17,5 +17,6 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
 urlpatterns = [
-    url(r'^$',views.homepage,name='index')
+    url(r'^$',views.homepage,name='index'),
+    url(r'^logout/$',views.logout_view,name='logout')
 ]
