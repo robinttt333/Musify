@@ -5,7 +5,7 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](https://github.com/robinttt333/Musify/blob/master/Capture.PNGCapture.png)
+![Musify homepage](https://github.com/robinttt333/Musify/blob/master/Capture.PNG)
 
 ## Development setup
 
@@ -32,7 +32,7 @@ I have already created a superuser with username:django and password:django123.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/robinttt333/Musify/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
