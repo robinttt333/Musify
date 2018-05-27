@@ -20,7 +20,9 @@ pip pagedown
 pip mediumeditor
 ```
 ##Getting Started
+
 Once the required packages are installed head to the directory with manage.py.Type
+
 ```sh
 python manage.py runserver port(optional,8000 by default)
 ```
