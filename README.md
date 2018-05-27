@@ -1,9 +1,8 @@
 # Musify
 > Musify is a simple music blog that can be used by users to share their thoughts about their favourite songs and artists. 
 
-
-
-One to two paragraph statement about your product and what it does.
+You can write blogs about your favourite songs and not just that share them online onyour facebook account.
+Add comments to other posts so that others get a chance to hear you out!
 
 ![Musify homepage](https://github.com/robinttt333/Musify/blob/master/Capture.PNG)
 
