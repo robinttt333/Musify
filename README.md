@@ -11,13 +11,15 @@ Add comments to other posts so that others get a chance to hear you out!
 You wil need to install python to start off.
 Next is pip.
 
-```sh
-pip install django
-pip install pillow
-pip install crispy_forms
-pip pagedown
-pip mediumeditor
-```
+Django==1.11.13
+django-appconf==1.0.2
+django-crispy-forms==1.7.2
+django-froala-editor==2.8.1.1
+django-mediumeditor==1.0.0
+django-pagedown==1.0.4
+Pillow==5.1.0
+pytz==2018.4
+
 ## Getting Started
 
 Once the required packages are installed head to the directory with manage.py.Type
