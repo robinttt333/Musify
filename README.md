@@ -5,7 +5,7 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](Capture.png)
+![](https://github.com/robinttt333/Musify/blob/master/Capture.PNGCapture.png)
 
 ## Development setup
 
