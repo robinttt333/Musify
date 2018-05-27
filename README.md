@@ -19,7 +19,7 @@ pip install crispy_forms
 pip pagedown
 pip mediumeditor
 ```
-##Getting Started
+## Getting Started
 
 Once the required packages are installed head to the directory with manage.py.Type
 
